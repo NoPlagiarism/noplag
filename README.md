@@ -7,17 +7,25 @@ Yet another personal scoop bucket for [Scoop](https://scoop.sh).
 
 ## How do I install these manifests?
 
-After manifests have been committed and pushed, run the following:
+Add the bucket with following line:
 
 ```pwsh
 scoop bucket add noplag https://github.com/NoPlagiarism/noplag
-scoop install noplag/<manifestname>
 ```
 
 ## Current apps
 
 - [Moo0 System Monitor](https://www.moo0.com/software/SystemMonitor/)
+
+  - ```pwsh
+    scoop install noplag/moo0-system-monitor
+    ```
+
 - [chibi](https://chibi-cli.pages.dev/) [(repo)](https://github.com/CosmicPredator/chibi-cli)
+
+  - ```pwsh
+    scoop install noplag/chibi
+    ```
 
 ## Moved
 
