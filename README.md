@@ -17,6 +17,7 @@ scoop install noplag/<manifestname>
 ## Current apps
 
 - [Moo0 System Monitor](https://www.moo0.com/software/SystemMonitor/)
+- [chibi](https://chibi-cli.pages.dev/) [(repo)](https://github.com/CosmicPredator/chibi-cli)
 
 ## Moved
 
