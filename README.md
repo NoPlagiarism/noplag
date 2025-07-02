@@ -14,9 +14,10 @@ scoop bucket add noplag https://github.com/NoPlagiarism/noplag
 scoop install noplag/<manifestname>
 ```
 
-## How do I contribute new manifests?
+## Current apps
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+- [Moo0 System Monitor](https://www.moo0.com/software/SystemMonitor/)
+
+## Moved
+
+- [neohtop](https://github.com/Abdenasser/neohtop) [is now at extras](https://scoop.sh/#/apps?q=neohtop&id=b3001b621a659c4a3e1b98bd45ed918628ee8d62)
