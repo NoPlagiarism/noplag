@@ -19,6 +19,6 @@
     "persist": "savedata",
     "checkver": {
         "url": "https://www.moo0.com/software/SystemMonitor/",
-        "regex": "Version:<\\/td><td[^>]+><strong>([d.]+)"
+        "regex": "Version:<\\/td><td nowrap=nowrap class=tdSoftwareInfoData><strong>([\\d.]+)"
     }
 }
