@@ -1,7 +1,7 @@
 import httpx
 
 from base_module import BaseScoopModule, UpdateState
-from shared import get_sha256_from_string, get_sha256_from_string_file
+# from shared import get_sha256_from_string, get_sha256_from_string_file
 
 
 class StealModule(BaseScoopModule):
@@ -21,11 +21,12 @@ class StealModule(BaseScoopModule):
         if not self.exists():
             self.state = UpdateState.NEW
             return True
-        cursha = get_sha256_from_string_file(self.manifest_path)
+        # cursha = get_sha256_from_string_file(self.manifest_path)
         self.download_new()
         assert self.new_text is not None and self.new is not None
-        mirsha = get_sha256_from_string(self.new_text)
-        if mirsha == cursha:
+        # mirsha = get_sha256_from_string(self.new_text)
+        cur = self.read_manifest()
+        if self.new == cur:
             self.state = UpdateState.CLEAR
             return False
         if self.curver != self.new["version"]:

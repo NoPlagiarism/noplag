@@ -27,12 +27,18 @@ class BaseScoopModule:
     def exists(self) -> bool:
         return os.path.exists(self.manifest_path)
 
-    @property
-    def curver(self) -> t.Optional[str]:
+    def read_manifest(self) -> t.Optional[dict]:
         if not self.exists():
             return None
         with open(self.manifest_path, mode="r", encoding="utf-8") as f:
             data = json.load(f)
+        return data
+
+    @property
+    def curver(self) -> t.Optional[str]:
+        data = self.read_manifest()
+        if not data:
+            return None
         return data["version"]
 
     @property
