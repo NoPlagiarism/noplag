@@ -4,6 +4,11 @@ on:
     # run every 4 hours
     - cron: '20 */4 * * *'
 name: Excavator
+
+env:
+  PYTHON_VER: "3.12.10"
+  POETRY_VER: "2.3.2"
+
 jobs:
   excavate:
     name: Excavate
@@ -24,11 +29,34 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: "Setup Python, Poetry and Dependencies"
-        uses: packetcoders/action-setup-cache-python-poetry@v1.2.0
+      - name: Setup python
+        uses: actions/setup-python@v5
+        id: setup-python
         with:
-          python-version: 3.12.10
-          poetry-version: 2.3.2
+          python-version: ${{ env.PYTHON_VER }}
+      - name: Load cached Poetry Binary
+        id: cached-poetry-binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.local
+          key: venv-${{ runner.os }}-${{ env.PYTHON_VER }}-${{ env.POETRY_VER }}
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: ${{ env.POETRY_VER }}
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: Load cached venv
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ env.PYTHON_VER }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            venv-${{ runner.os }}-${{ env.PYTHON_VER }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Install deps
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        shell: bash
+        run: poetry install --no-interaction --no-root
       - name: "Excavate"
         run: poetry run python ./main.py
       - name: Push changes
