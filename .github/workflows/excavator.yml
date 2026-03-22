@@ -18,17 +18,18 @@ jobs:
   excavate-add:
     name: Excavate additional
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./scripts
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: "Setup Python, Poetry and Dependencies"
         uses: packetcoders/action-setup-cache-python-poetry@v1.2.0
-        working-directory: ./scripts
         with:
           python-version: 3.12.10
           poetry-version: 2.3.2
       - name: "Excavate"
-        working-directory: ./scripts
         run: poetry run python ./main.py
       - name: Push changes
         uses: ad-m/github-push-action@master
