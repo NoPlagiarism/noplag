@@ -48,3 +48,4 @@ class BaseScoopModule:
     def save_manifest(self, data: dict):
         with open(self.manifest_path, mode="w+", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
+            f.write("\n")
