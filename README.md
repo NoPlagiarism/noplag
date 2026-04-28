@@ -32,6 +32,12 @@ scoop bucket add noplag https://github.com/NoPlagiarism/noplag
     scoop install noplag/fagram
     ```
 
+- [FriendNet](https://friendnet.org) (Non-Portable!)
+
+  - ```pwsh
+    scoop install noplag/friendnet-np
+    ```
+
 - [vmcli](https://github.com/rpetti/vmcli)
 
   - ```pwsh
