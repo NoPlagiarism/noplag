@@ -1,5 +1,5 @@
 {
-    "version": "2.3.2",
+    "version": "2.3.4",
     "description": "FAgram Desktop is a custom Telegram client.",
     "homepage": "https://github.com/fagramdesktop/fadesktop",
     "license": {
@@ -8,8 +8,8 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/fagramdesktop/fadesktop/releases/download/2.3.2/FAgram_Win-x64_2.3.2_portable.zip",
-            "hash": "c6fbe180ee9d5087048db888d82a0b43dc81784ec4fa655aafc3143b4111332b"
+            "url": "https://github.com/fagramdesktop/fadesktop/releases/download/2.3.4/FAgram_Win-x64_2.3.4_portable.zip",
+            "hash": "0ffa0091745cc19ac421c79fa42ebf6e6000c0b00731dabe69e24c659d3a0cc0"
         }
     },
     "shortcuts": [
