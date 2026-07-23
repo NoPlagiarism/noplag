@@ -1,8 +1,9 @@
 from enum import IntEnum
 import os
 import json
+from functools import cached_property
 
-from shared import BUCKET_DIR, UpdateState
+from shared import BUCKET_DIR, UpdateState, check_scriptignore
 
 import typing as t
 
@@ -19,6 +20,10 @@ class BaseScoopModule:
 
     def update(self) -> None:
         raise NotImplemented
+
+    @cached_property
+    def ignore_state(self) -> str | None:
+        return check_scriptignore(self.name)
 
     @property
     def manifest_path(self) -> str:

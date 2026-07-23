@@ -23,6 +23,7 @@ def main():
             git.add_n_commit(manifest.manifest_path, commit_msg=commit_msg)
         else:
             print(f"No updates for {manifest} found")
+        # TODO: Implement reverting from .scriptignore here
 
 
 if __name__ == "__main__":

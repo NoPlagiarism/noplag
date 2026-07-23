@@ -21,9 +21,14 @@ class StealModule(BaseScoopModule):
         if not self.exists():
             self.state = UpdateState.NEW
             return True
+        if self.ignore_state == "*":
+            return False
         # cursha = get_sha256_from_string_file(self.manifest_path)
         self.download_new()
         assert self.new_text is not None and self.new is not None
+        if self.new["version"] == self.ignore_state:
+            self.state = UpdateState.IGNORED
+            return False
         # mirsha = get_sha256_from_string(self.new_text)
         cur = self.read_manifest()
         if self.new == cur:
