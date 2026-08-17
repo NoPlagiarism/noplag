@@ -44,6 +44,12 @@ scoop bucket add noplag https://github.com/NoPlagiarism/noplag
     scoop install noplag/vmcli
     ```
 
+- [FRP Manger](https://github.com/koho/frpmgr)
+
+  - ```pwsh
+    scoop install noplag/frpmgr
+    ```
+
 ## Moved
 
 - [neohtop](https://github.com/Abdenasser/neohtop) [is now at extras](https://scoop.sh/#/apps?q=neohtop&id=b3001b621a659c4a3e1b98bd45ed918628ee8d62)
