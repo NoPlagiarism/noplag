@@ -50,6 +50,12 @@ scoop bucket add noplag https://github.com/NoPlagiarism/noplag
     scoop install noplag/frpmgr
     ```
 
+- [lazymc](https://github.com/timvisee/lazymc)
+
+  - ```pwsh
+    scoop install noplag/lazymc
+    ```
+
 ## Moved
 
 - [neohtop](https://github.com/Abdenasser/neohtop) [is now at extras](https://scoop.sh/#/apps?q=neohtop&id=b3001b621a659c4a3e1b98bd45ed918628ee8d62)
