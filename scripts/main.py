@@ -1,16 +1,20 @@
 import os
+import sys
 
 from shared import COMMIT_MESSAGES
 from steal import StealModule
 from git_commands import Git
 
-MANIFESTS = [
-    StealModule("fagram", "https://raw.githubusercontent.com/fagramdesktop/fagram-scoop/refs/heads/main/fagram.json")
-]
+MANIFESTS_DICT = {
+    "main": [StealModule("fagram", "https://raw.githubusercontent.com/fagramdesktop/fagram-scoop/refs/heads/main/fagram.json")],
+}
+CUR_BUCKET = sys.argv[-1]  # TODO: implement click instead of this
+MANIFESTS = MANIFESTS_DICT[CUR_BUCKET]
 
 
 def main():
     # TODO: async
+    print(f"Current bucket: {CUR_BUCKET}")
     git = Git()
     for manifest in MANIFESTS:
         # TODO: actual logging needed LOL
