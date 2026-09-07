@@ -31,7 +31,7 @@ def main():
             manifest.update()
             assert manifest.state is not None
             commit_msg = COMMIT_MESSAGES[manifest.state].format(name=manifest.name, curver=manifest.curver, newver=manifest.newver)
-            # git.add_n_commit(manifest.manifest_path, commit_msg=commit_msg)
+            git.add_n_commit(manifest.manifest_path, commit_msg=commit_msg)
         else:
             print(f"No updates for {manifest} found")
         # TODO: Implement reverting from .scriptignore here
