@@ -29,35 +29,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup python
-        uses: actions/setup-python@v5
-        id: setup-python
+      - name: Setup uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
-          python-version: ${{ env.PYTHON_VER }}
-      - name: Load cached Poetry Binary
-        id: cached-poetry-binary
-        uses: actions/cache@v4
-        with:
-          path: ~/.local
-          key: venv-${{ runner.os }}-${{ env.PYTHON_VER }}-${{ env.POETRY_VER }}
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          version: ${{ env.POETRY_VER }}
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-      - name: Load cached venv
-        uses: actions/cache@v4
-        with:
-          path: $GITHUB_WORKSPACE/scripts/.venv
-          key: venv-${{ runner.os }}-${{ env.PYTHON_VER }}-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            venv-${{ runner.os }}-${{ env.PYTHON_VER }}-${{ hashFiles('**/poetry.lock') }}
-      - name: Install deps
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+          enable-cache: true
+      - name: uv sync
         shell: bash
-        run: poetry install --no-interaction --no-root
+        run: uv sync
       - name: "Excavate"
-        run: poetry run python ./main.py main
+        run: uv run python ./main.py main
       - name: Push changes
         uses: ad-m/github-push-action@master
