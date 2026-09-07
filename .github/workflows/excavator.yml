@@ -58,6 +58,6 @@ jobs:
         shell: bash
         run: poetry install --no-interaction --no-root
       - name: "Excavate"
-        run: poetry run python ./main.py
+        run: poetry run python ./main.py main
       - name: Push changes
         uses: ad-m/github-push-action@master
