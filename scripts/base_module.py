@@ -54,3 +54,11 @@ class BaseScoopModule:
         with open(self.manifest_path, mode="w+", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
             f.write("\n")
+
+class BaseScoopModuleWithExtra(BaseScoopModule):
+    extra: dict
+
+    def save_manifest(self, data: dict, *, inject_extra: bool = True):
+        if inject_extra:
+            data = self.extra | data
+        super().save_manifest(data)
