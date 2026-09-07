@@ -26,6 +26,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Clone scripts
+        uses: actions/checkout@v7
+        with:
+          repository: 'NoPlagiarism/noplag_scoop_scripts'
+          fetch-depth: 1
+          path: scripts
       - name: Setup uv
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
