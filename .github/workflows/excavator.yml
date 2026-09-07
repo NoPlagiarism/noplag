@@ -23,9 +23,6 @@ jobs:
   excavate-add:
     name: Excavate additional
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./scripts
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,8 +32,11 @@ jobs:
           enable-cache: true
       - name: uv sync
         shell: bash
+        working-directory: ./scripts
         run: uv sync
       - name: "Excavate"
+        shell: bash
+        working-directory: ./scripts
         run: uv run python ./main.py main
       - name: Push changes
         uses: ad-m/github-push-action@master
