@@ -15,6 +15,12 @@
         "Hookshot-v2.0.0/x64",
         "Pathwinder-v1.2.0/x64"
     ],
+    "notes": [
+        "Icon for shortcut is not supported yet. You can set it yourself using icon from original exe file",
+        "This is manifest from RePortable bucket, which hooks executable to be portable again using Pathwinder and Hookshot",
+        "By using this manifest, you agree to be aware of bugs and do not harass/reach out to developers of included apps about bugs caused by this manifest (Please test everything thoroughly)",
+        "You can see current redirects in $dir\\Pathwinder.ini"
+    ],
     "version": "6.3.0",
     "architecture": {
         "64bit": {
@@ -37,10 +43,5 @@
         "$pwContent = \"[FilesystemRule:RP_bt-reportable_0]`nOriginDirectory = $env:AppData\\\\Browser Tamer`nTargetDirectory = $persist_dir\\\\appdata`n\"",
         "if (Test-Path \"$dir\\Pathwinder.ini\") { Remove-Item \"$dir\\Pathwinder.ini\" -Force }",
         "Set-Content -Path \"$dir\\Pathwinder.ini\" -Value $pwContent -Force"
-    ],
-    "notes": [
-        "This is manifest from RePortable bucket, which hooks executable to be portable again using Pathwinder and Hookshot",
-        "By using this manifest, you agree to be aware of bugs and do not harass/reach out to developers of included apps about bugs caused by this manifest (Please test everything thoroughly)",
-        "You can see current redirects in $dir\\Pathwinder.ini"
     ]
 }
