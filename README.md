@@ -20,6 +20,12 @@ scoop bucket add noplag https://github.com/NoPlagiarism/noplag
     scoop install noplag/moo0-system-monitor
     ```
 
+- [Browser Tamer](https://github.com/aloneguid/bt) (RePortable using DLL injection ([Hookshot](https://github.com/samuelgr/Hookshot) x [Pathwinder](https://github.com/samuelgr/Pathwinder)))
+
+  - ```pwsh
+    scoop install noplag/bt-reportable
+    ```
+
 - [chibi](https://chibi-cli.pages.dev/) [(repo)](https://github.com/CosmicPredator/chibi-cli)
 
   - ```pwsh
